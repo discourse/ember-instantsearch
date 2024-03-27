@@ -1,8 +1,8 @@
 {
   "private": true,
-  "repository": "",
+  "repository": "https://github.com/discourse/ember-instantsearch",
   "license": "MIT",
-  "author": "",
+  "author": "Discourse",
   "scripts": {
     "build": "yarn workspace ember-instantsearch run build",
     "lint": "yarn workspaces run lint",
