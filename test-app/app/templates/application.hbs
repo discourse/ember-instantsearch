@@ -4,7 +4,7 @@
 
 <AisInstantSearch
   @appId="8EC98RO7PX"
-  @apiKey="451c0ea95cf158e197d52c893df64d76"
+  @apiKey={{this.apiKey}}
   @indexName="dev_keegantest"
   @middleware={{this.customMiddleware}}
   as |Ais|
@@ -19,14 +19,5 @@
     @hitTemplate={{this.hitTemplate}}
   />
 </AisInstantSearch>
-
-{{!-- <AisInstantSearch
-  @appId="8EC98RO7PX"
-  @apiKey="451c0ea95cf158e197d52c893df64d76"
-  @indexName="dev_keegantest"
-  as |AisInstantSearch|
->
-  <AisSearchBox @searchInstance={{AisInstantSearch.searchInstance}} />
-</AisInstantSearch> --}}
 
 {{outlet}}
