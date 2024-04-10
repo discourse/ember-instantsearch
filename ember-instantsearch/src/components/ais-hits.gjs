@@ -16,6 +16,16 @@ export default class AisHits extends AisBaseWidget {
       ? {
           item: (hit, { html, components }) => {
             const hitTemplate = this.args.hitTemplate;
+
+            // This works:
+            // return html`<h2>${components.Highlight({
+            //   hit,
+            //   attribute: 'title',
+            // })}</h2>`;
+            // but we need to receive the template as an argument instead
+
+            // TODO: Fix
+            // This doesn't catch InstantSearch components like Highlight/Snippet
             if (typeof hitTemplate === 'function') {
               return html`${hitTemplate(hit, components)}`;
             }
