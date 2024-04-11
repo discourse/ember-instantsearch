@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 import ENV from '../config/environment';
 
 export default class ApplicationController extends Controller {
+  @service aisInstantSearch;
   get customMiddleware() {
     return [
       () => ({
@@ -23,9 +24,11 @@ export default class ApplicationController extends Controller {
     return ENV.APP.INSTANT_SEARCH_API_KEY;
   }
 
-  get hitTemplate() {
-    return (hit, components) => {
-      const template = `<h2>${components.Highlight({ hit, attribute: 'title' })}</h2>`;
+  get customHitTemplate() {
+    return (hit) => {
+      const title = this.aisInstantSearch.highlight(hit, 'title');
+      const overview = this.aisInstantSearch.snippet(hit, 'overview');
+      const template = `<h2>${title}</h2><p>${overview}</p>`;
       return template;
     };
   }

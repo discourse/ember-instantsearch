@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import { tracked } from '@glimmer/tracking';
+import { configure } from 'instantsearch.js/es/widgets';
 
 export default class AisBaseWidget extends Component {
   @tracked element = null;
@@ -33,7 +34,10 @@ export default class AisBaseWidget extends Component {
 
     this.checkRequiredProps();
 
-    this.args.searchInstance.addWidgets([this.createAlgoliaWidget()]);
+    this.args.searchInstance.addWidgets([
+      this.createAlgoliaWidget(element),
+      configure({ attributesToSnippet: ['*'] }),
+    ]);
 
     if (!this.args.searchInstance?.started) {
       this.args.searchInstance.start();
