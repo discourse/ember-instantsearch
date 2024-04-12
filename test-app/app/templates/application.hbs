@@ -10,33 +10,58 @@
   @configurationOptions={{this.configurationOptions}}
   as |Ais|
 >
-  <AisSearchBox
-    @searchInstance={{Ais.searchInstance}}
-    @placeholder="Enter your query"
-    @cssClasses={{hash root="search-box"}}
-  />
+  <div class="container">
+    <div class="sidebar">
+      <h4 class="refinement-title">Filter by Genre</h4>
+      <AisRefinementList
+        @searchInstance={{Ais.searchInstance}}
+        @attribute="genres"
+        @showMore={{true}}
+        @searchable={{true}}
+        @searchablePlaceholder="Search for genres"
+        @cssClasses={{hash root="refinement-list"}}
+      />
+      <h4 class="refinement-title">Filter By Keywords</h4>
+      <AisRefinementList
+        @searchInstance={{Ais.searchInstance}}
+        @attribute="keywords"
+        @showMore={{true}}
+        @searchable={{true}}
+        @searchablePlaceholder="Search for keywords"
+        @cssClasses={{hash root="refinement-list"}}
+      />
+    </div>
 
-  <div class="info-toggle-bar">
-    <AisStats @searchInstance={{Ais.searchInstance}} />
+    <div class="main-section">
+      <AisSearchBox
+        @searchInstance={{Ais.searchInstance}}
+        @placeholder="Enter your query"
+        @cssClasses={{hash root="search-box"}}
+      />
 
-    <AisHitsPerPage
-      @searchInstance={{Ais.searchInstance}}
-      @items={{this.hitsPerPageItems}}
-      @rootClass="hits-per-page"
-    />
-    <AisSortBy
-      @searchInstance={{Ais.searchInstance}}
-      @items={{this.sortByItems}}
-    />
+      <div class="info-toggle-bar">
+        <AisStats @searchInstance={{Ais.searchInstance}} />
+
+        <AisHitsPerPage
+          @searchInstance={{Ais.searchInstance}}
+          @items={{this.hitsPerPageItems}}
+          @rootClass="hits-per-page"
+        />
+        <AisSortBy
+          @searchInstance={{Ais.searchInstance}}
+          @items={{this.sortByItems}}
+        />
+      </div>
+
+      <AisHits
+        @searchInstance={{Ais.searchInstance}}
+        @customHitTemplate={{this.customHitTemplate}}
+        @rootClass="hits"
+      />
+      <AisPagination @searchInstance={{Ais.searchInstance}} />
+      <AisPoweredBy @searchInstance={{Ais.searchInstance}} />
+    </div>
   </div>
-
-  <AisHits
-    @searchInstance={{Ais.searchInstance}}
-    @customHitTemplate={{this.customHitTemplate}}
-    @rootClass="hits"
-  />
-  <AisPagination @searchInstance={{Ais.searchInstance}} />
-  <AisPoweredBy @searchInstance={{Ais.searchInstance}} />
 
 </AisInstantSearch>
 

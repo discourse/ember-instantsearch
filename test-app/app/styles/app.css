@@ -2,17 +2,46 @@
   font-family: sans-serif;
 }
 
+:root {
+  --primary: #08c;
+  --primary-low: #d1f0ff;
+  --secondary: #eeeaea;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.main-section {
+  flex: 4;
+}
+
 .ais-Pagination-list {
   display: flex;
   gap: 1rem;
   list-style: none;
-  background: lightgrey;
+  background: var(--secondary);
+  color: var(--primary);
   padding: 0.5em;
   justify-content: center;
 }
 
+.ais-Pagination-list a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.ais-Pagination-list a:hover {
+  text-decoration: underline;
+}
+
 .info-toggle-bar {
-  background: lightgrey;
+  background: var(--secondary);
   padding: 0.5em;
   display: flex;
   align-items: center;
@@ -41,5 +70,32 @@
 }
 
 .hits {
-  border: 1px solid lightgrey;
+  border: 1px solid var(--secondary);
+}
+
+.refinement-title {
+  margin-left: 1rem;
+  margin-bottom: 0;
+  color: var(--primary);
+}
+
+.refinement-list {
+  background: var(--secondary);
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.refinement-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ais-RefinementList-label {
+  display: flex;
+  align-items: center;
+}
+
+.ais-RefinementList-count {
+  margin-left: auto;
+  color: grey;
 }
