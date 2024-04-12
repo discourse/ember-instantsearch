@@ -3,9 +3,9 @@
 <h2 id="title">Welcome to Ember InstantSearch Test App</h2>
 
 <AisInstantSearch
-  @appId="8EC98RO7PX"
-  @apiKey={{this.apiKey}}
-  @indexName="dev_keegantest"
+  @appId={{this.apiData.appId}}
+  @apiKey={{this.apiData.apiKey}}
+  @indexName={{this.apiData.indexName}}
   @middleware={{this.customMiddleware}}
   as |Ais|
 >
@@ -14,10 +14,29 @@
     @placeholder="Enter your query"
     @cssClasses={{hash root="search-box"}}
   />
+
+  <div class="info-toggle-bar">
+    <AisStats @searchInstance={{Ais.searchInstance}} />
+
+    <AisHitsPerPage
+      @searchInstance={{Ais.searchInstance}}
+      @items={{this.hitsPerPageItems}}
+      @rootClass="hits-per-page"
+    />
+    <AisSortBy
+      @searchInstance={{Ais.searchInstance}}
+      @items={{this.sortByItems}}
+    />
+  </div>
+
   <AisHits
     @searchInstance={{Ais.searchInstance}}
     @customHitTemplate={{this.customHitTemplate}}
+    @rootClass="hits"
   />
+  <AisPagination @searchInstance={{Ais.searchInstance}} />
+  <AisPoweredBy @searchInstance={{Ais.searchInstance}} />
+
 </AisInstantSearch>
 
 {{outlet}}

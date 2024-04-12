@@ -16,6 +16,7 @@ export default class AisSearchBox extends AisBaseWidget {
     showSubmit: this.args.showSubmit,
     showLoadingIndicator: this.args.showLoadingIndicator,
     queryHook: this.args.queryHook,
+    cssClasses: this.args.cssClasses,
   };
 
   createAlgoliaWidget() {

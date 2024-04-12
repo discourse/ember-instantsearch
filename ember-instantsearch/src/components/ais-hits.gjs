@@ -33,8 +33,4 @@ export default class AisHits extends AisBaseWidget {
   createAlgoliaWidget() {
     return hits(this.props);
   }
-
-  <template>
-    <div {{didInsert this.createWidget}}></div>
-  </template>
 }

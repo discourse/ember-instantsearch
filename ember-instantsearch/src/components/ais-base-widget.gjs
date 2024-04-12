@@ -52,6 +52,6 @@ export default class AisBaseWidget extends Component {
 
   // Basic template that can be overridden in derived classes
   <template>
-    <div {{didInsert this.createWidget}}></div>
+    <div {{didInsert this.createWidget}} class={{this.args.rootClass}}></div>
   </template>
 }

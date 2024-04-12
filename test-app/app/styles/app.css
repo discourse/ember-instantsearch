@@ -1,0 +1,45 @@
+* {
+  font-family: sans-serif;
+}
+
+.ais-Pagination-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  background: lightgrey;
+  padding: 0.5em;
+  justify-content: center;
+}
+
+.info-toggle-bar {
+  background: lightgrey;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.info-toggle-bar .hits-per-page {
+  margin-left: auto;
+}
+
+.search-box form {
+  width: 100%;
+  margin-block: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.search-box input {
+  flex: 1;
+}
+
+.search-box button,
+.search-box input {
+  padding: 0.25em;
+}
+
+.hits {
+  border: 1px solid lightgrey;
+}
