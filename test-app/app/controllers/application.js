@@ -52,4 +52,10 @@ export default class ApplicationController extends Controller {
       { label: 'Popularity', value: 'dev_keegantest_popularity_desc' },
     ];
   }
+
+  get configurationOptions() {
+    return {
+      attributesToSnippet: ['overview:20'],
+    };
+  }
 }

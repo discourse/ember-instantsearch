@@ -79,6 +79,7 @@
       "./components/ais-infinite-hits.js": "./dist/_app_/components/ais-infinite-hits.js",
       "./components/ais-instant-search.js": "./dist/_app_/components/ais-instant-search.js",
       "./components/ais-pagination.js": "./dist/_app_/components/ais-pagination.js",
+      "./components/ais-panel.js": "./dist/_app_/components/ais-panel.js",
       "./components/ais-powered-by.js": "./dist/_app_/components/ais-powered-by.js",
       "./components/ais-refinement-list.js": "./dist/_app_/components/ais-refinement-list.js",
       "./components/ais-relevant-sort.js": "./dist/_app_/components/ais-relevant-sort.js",

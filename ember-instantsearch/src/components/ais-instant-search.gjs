@@ -4,6 +4,7 @@ import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
+import { configure } from 'instantsearch.js/es/widgets';
 
 export default class AisInstantSearch extends Component {
   @service aisInstantSearch;
@@ -60,6 +61,14 @@ export default class AisInstantSearch extends Component {
         persistHierarchicalRootCount: this.args.persistHierarchicalRootCount,
       },
     });
+
+    if (this.args.configurationOptions) {
+      // See https://www.algolia.com/doc/api-reference/search-api-parameters/
+      // for available search API configuration options
+      this.instantSearchInstance.addWidgets([
+        configure(this.args.configurationOptions),
+      ]);
+    }
 
     this.applyMiddleware();
   }

@@ -34,10 +34,7 @@ export default class AisBaseWidget extends Component {
 
     this.checkRequiredProps();
 
-    this.args.searchInstance.addWidgets([
-      this.createAlgoliaWidget(element),
-      configure({ attributesToSnippet: ['*'] }),
-    ]);
+    this.args.searchInstance.addWidgets([this.createAlgoliaWidget(element)]);
 
     if (!this.args.searchInstance?.started) {
       this.args.searchInstance.start();
