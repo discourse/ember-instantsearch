@@ -16,6 +16,7 @@ export default class AisPagination extends AisBaseWidget {
     totalPages: this.args.totalPages,
     scrollTo: this.args.scrollTo,
     cssClasses: this.args.cssClasses,
+    templates: this.args.templates,
   };
 
   createAlgoliaWidget() {

@@ -29,11 +29,20 @@ export default class ApplicationController extends Controller {
   }
 
   get customHitTemplate() {
-    return (hit) => {
-      const title = this.aisInstantSearch.highlight(hit, 'title');
-      const overview = this.aisInstantSearch.snippet(hit, 'overview');
-      const template = `<h2>${title}</h2><p>${overview}</p>`;
-      return template;
+    return {
+      showPreviousText(data, { html }) {
+        return html`<span>Show previous</span>`;
+      },
+      showMoreText: (data, { html }) => {
+        return html`<span>Show More Results</span>`;
+      },
+      item: (hit, { html }) => {
+        const title = this.aisInstantSearch.highlight(hit, 'title');
+        const overview = this.aisInstantSearch.snippet(hit, 'overview');
+        const template = html`<h2>${title}</h2>
+          <p>${overview}</p>`;
+        return template;
+      },
     };
   }
 

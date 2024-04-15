@@ -11,6 +11,7 @@ export default class AisMenuSelect extends AisBaseWidget {
   @tracked optionalProps = {
     limit: this.args.limit,
     sortBy: this.args.sortBy,
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
   };

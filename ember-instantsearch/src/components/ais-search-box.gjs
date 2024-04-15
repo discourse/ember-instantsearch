@@ -16,6 +16,7 @@ export default class AisSearchBox extends AisBaseWidget {
     showSubmit: this.args.showSubmit,
     showLoadingIndicator: this.args.showLoadingIndicator,
     queryHook: this.args.queryHook,
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
   };
 

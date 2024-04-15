@@ -21,6 +21,7 @@ export default class AisRefinementList extends AisBaseWidget {
     searchableIsAlwaysActive: this.args.searchableIsAlwaysActive,
     searchableEscapeFacetValues: this.args.searchableEscapeFacetValues,
     sortBy: this.args.sortBy,
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
   };

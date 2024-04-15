@@ -11,6 +11,7 @@ export default class AisClearRefinements extends AisBaseWidget {
     includedAttributes: this.args.includedAttributes,
     excludedAttributes: this.args.excludedAttributes,
     cssClasses: this.args.cssClasses,
+    templates: this.args.templates,
     transformItems: this.args.transformItems,
   };
 

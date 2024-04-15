@@ -13,6 +13,7 @@ export default class AisInfiniteHits extends AisBaseWidget {
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
     cache: this.args.cache,
+    templates: this.args.templates,
   };
 
   createAlgoliaWidget() {

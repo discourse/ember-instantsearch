@@ -8,6 +8,7 @@ export default class AisPanel extends AisBaseWidget {
   @tracked optionalProps = {
     hidden: this.args.hidden,
     collapsed: this.args.collapsed,
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
   };
 

@@ -10,6 +10,7 @@ export default class AisRatingMenu extends AisBaseWidget {
 
   @tracked optionalProps = {
     max: this.args.max,
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
   };
 

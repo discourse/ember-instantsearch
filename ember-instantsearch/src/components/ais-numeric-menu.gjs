@@ -10,6 +10,7 @@ export default class AisNumericMenu extends AisBaseWidget {
   };
 
   @tracked optionalProps = {
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
   };

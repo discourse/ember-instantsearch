@@ -13,6 +13,7 @@ export default class AisMenu extends AisBaseWidget {
     showMore: this.args.showMore,
     showMoreLimit: this.args.showMoreLimit,
     sortBy: this.args.sortBy,
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
   };

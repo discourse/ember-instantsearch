@@ -1,7 +1,6 @@
 import { hits } from 'instantsearch.js/es/widgets';
 import AisBaseWidget from './ais-base-widget.gjs';
 import { tracked } from '@glimmer/tracking';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
 export default class AisHits extends AisBaseWidget {
   @tracked requiredProps = {
@@ -12,25 +11,11 @@ export default class AisHits extends AisBaseWidget {
     escapeHTML: this.args.escapeHTML,
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
-    templates: this.args.customHitTemplate
-      ? {
-          item: (hit, { html }) => {
-            const hitTemplate = this.args.customHitTemplate;
-
-            if (!hitTemplate) {
-              return;
-            }
-
-            if (typeof hitTemplate === 'function') {
-              const t = hitTemplate(hit);
-              return html`${t}`;
-            }
-          },
-        }
-      : undefined,
+    templates: this.args.templates,
   };
 
   createAlgoliaWidget() {
+    console.log(this.optionalProps.templates);
     return hits(this.props);
   }
 }

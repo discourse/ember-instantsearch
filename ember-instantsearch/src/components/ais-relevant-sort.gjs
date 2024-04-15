@@ -8,6 +8,7 @@ export default class AisRelevantSort extends AisBaseWidget {
   };
 
   @tracked optionalProps = {
+    templates: this.args.templates,
     cssClasses: this.args.cssClasses,
   };
 
