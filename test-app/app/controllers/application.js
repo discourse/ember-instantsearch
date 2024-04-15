@@ -22,9 +22,12 @@ export default class ApplicationController extends Controller {
 
   get apiData() {
     return {
-      apiKey: ENV.APP.INSTANT_SEARCH_API_KEY,
-      appId: ENV.APP.INSTANT_SEARCH_APP_ID,
-      indexName: ENV.APP.INSTANT_SEARCH_INDEX_NAME,
+      apiKey: ENV.APP.TYPESENSE_API_KEY,
+      port: 8108,
+      host: 'typesense.demo-by-discourse.com',
+      protocol: 'https',
+      indexName: '',
+      queryBy: 'title',
     };
   }
 

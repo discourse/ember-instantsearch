@@ -3,9 +3,7 @@
 <h2 id="title">Welcome to Ember InstantSearch Test App</h2>
 
 <AisInstantSearch
-  @appId={{this.apiData.appId}}
-  @apiKey={{this.apiData.apiKey}}
-  @indexName={{this.apiData.indexName}}
+  @apiData={{this.apiData}}
   @middleware={{this.customMiddleware}}
   @configurationOptions={{this.configurationOptions}}
   as |Ais|
@@ -55,10 +53,10 @@
           @items={{this.hitsPerPageItems}}
           @rootClass="hits-per-page"
         />
-        <AisSortBy
+        {{!-- <AisSortBy
           @searchInstance={{Ais.searchInstance}}
           @items={{this.sortByItems}}
-        />
+        /> --}}
       </div>
 
       <AisInfiniteHits
