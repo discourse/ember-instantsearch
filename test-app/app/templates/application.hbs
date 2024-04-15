@@ -10,28 +10,24 @@
 >
   <div class="container">
     <div class="sidebar">
-      <h4 class="refinement-title">Filter by Genre</h4>
+      <h4 class="refinement-title">Filter by Category</h4>
       <AisRefinementList
         @searchInstance={{Ais.searchInstance}}
-        @attribute="genres"
+        @attribute="category"
         @showMore={{true}}
         @searchable={{true}}
-        @searchablePlaceholder="Search for genres"
+        @searchablePlaceholder="Search for categories"
         @cssClasses={{hash root="refinement-list"}}
       />
-      <h4 class="refinement-title">Filter By Keywords</h4>
+
+      <h4 class="refinement-title">Filter By Users</h4>
       <AisRefinementList
         @searchInstance={{Ais.searchInstance}}
-        @attribute="keywords"
+        @attribute="author_username"
         @showMore={{true}}
         @searchable={{true}}
         @searchablePlaceholder="Search for keywords"
         @cssClasses={{hash root="refinement-list"}}
-      />
-
-      <AisRatingMenu
-        @searchInstance={{Ais.searchInstance}}
-        @attribute="vote_count"
       />
 
       <AisCurrentRefinements @searchInstance={{Ais.searchInstance}} />
@@ -53,10 +49,10 @@
           @items={{this.hitsPerPageItems}}
           @rootClass="hits-per-page"
         />
-        {{!-- <AisSortBy
+        <AisSortBy
           @searchInstance={{Ais.searchInstance}}
           @items={{this.sortByItems}}
-        /> --}}
+        />
       </div>
 
       <AisInfiniteHits

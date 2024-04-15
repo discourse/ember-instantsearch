@@ -26,8 +26,8 @@ export default class ApplicationController extends Controller {
       port: 8108,
       host: 'typesense.demo-by-discourse.com',
       protocol: 'https',
-      indexName: '',
-      queryBy: 'title',
+      indexName: 'posts',
+      queryBy: 'topic_title,cooked,author_username',
     };
   }
 
@@ -40,10 +40,12 @@ export default class ApplicationController extends Controller {
         return html`<span>Show More Results</span>`;
       },
       item: (hit, { html }) => {
-        const title = this.aisInstantSearch.highlight(hit, 'title');
-        const overview = this.aisInstantSearch.snippet(hit, 'overview');
-        const template = html`<h2>${title}</h2>
-          <p>${overview}</p>`;
+        const title = this.aisInstantSearch.highlight(hit, 'topic_title');
+        const post = this.aisInstantSearch.snippet(hit, 'raw');
+        const template = html`<h2 class="topic-title">
+            <a href="https://meta.discourse.org/${hit.topic_id}">${title}</a>
+          </h2>
+          <p>${post}</p>`;
         return template;
       },
     };
@@ -59,14 +61,16 @@ export default class ApplicationController extends Controller {
 
   get sortByItems() {
     return [
-      { label: 'Default', value: 'dev_keegantest' },
-      { label: 'Popularity', value: 'dev_keegantest_popularity_desc' },
+      { label: 'Posts', value: 'posts' },
+      { label: 'Topics', value: 'topics' },
+      { label: 'Chat Messages', value: 'chat_messages' },
+      { label: 'Users', value: 'users' },
     ];
   }
 
   get configurationOptions() {
     return {
-      attributesToSnippet: ['overview:20'],
+      attributesToSnippet: ['raw:20'],
     };
   }
 }

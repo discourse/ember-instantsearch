@@ -100,17 +100,17 @@ export default class AisInstantSearch extends Component {
       // const searchClient = algoliasearch(this.args.appId, this.args.apiKey);
       const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
         server: {
-          apiKey: 'xyz',
+          apiKey: this.args.apiData.apiKey,
           nodes: [
             {
-              host: 'typesense.demo-by-discourse.com',
-              port: 8108,
-              protocol: 'https',
+              host: this.args.apiData.host,
+              port: this.args.apiData.port,
+              protocol: this.args.apiData.protocol,
             },
           ],
         },
         additionalSearchParameters: {
-          query_by: 'title',
+          query_by: this.args.apiData.queryBy,
         },
       });
 
