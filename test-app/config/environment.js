@@ -21,7 +21,7 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    ENV.APP.INSTANT_SEARCH_API_KEY = process.env.INSTANT_SEARCH_API_KEY;
+    ENV.APP.TYPESENSE_API_KEY = process.env.TYPESENSE_API_KEY;
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
