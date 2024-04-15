@@ -13,8 +13,28 @@ export default class AisInfiniteHits extends AisBaseWidget {
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
     cache: this.args.cache,
-    templates: this.args.templates,
+    templates: this.args.templates ? this.buildTemplate() : undefined,
   };
+
+  buildTemplate() {
+    const template = {};
+    const propertiesToCheck = [
+      'empty',
+      'item',
+      'showPreviousText',
+      'showMoreText',
+    ];
+
+    propertiesToCheck.forEach((prop) => {
+      if (this.args.templates[prop]) {
+        template[prop] = (data, { html }) => {
+          return html`${this.args.templates[prop](data)}`;
+        };
+      }
+    });
+
+    return template;
+  }
 
   createAlgoliaWidget() {
     return infiniteHits(this.props);

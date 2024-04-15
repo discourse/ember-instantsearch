@@ -11,11 +11,25 @@ export default class AisHits extends AisBaseWidget {
     escapeHTML: this.args.escapeHTML,
     cssClasses: this.args.cssClasses,
     transformItems: this.args.transformItems,
-    templates: this.args.templates,
+    templates: this.args.templates ? this.buildTemplate() : undefined,
   };
 
+  buildTemplate() {
+    const template = {};
+    const propertiesToCheck = ['empty', 'item'];
+
+    propertiesToCheck.forEach((prop) => {
+      if (this.args.templates[prop]) {
+        template[prop] = (data, { html }) => {
+          return html`${this.args.templates[prop](data)}`;
+        };
+      }
+    });
+
+    return template;
+  }
+
   createAlgoliaWidget() {
-    console.log(this.optionalProps.templates);
     return hits(this.props);
   }
 }

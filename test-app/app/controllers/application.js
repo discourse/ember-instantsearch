@@ -33,17 +33,17 @@ export default class ApplicationController extends Controller {
 
   get customHitTemplate() {
     return {
-      showPreviousText(data, { html }) {
-        return html`<span>Show previous</span>`;
+      showPreviousText() {
+        return `<span>Show previous</span>`;
       },
-      showMoreText: (data, { html }) => {
-        return html`<span>Show More Results</span>`;
+      showMoreText: () => {
+        return `<span>Show More Results</span>`;
       },
-      item: (hit, { html }) => {
+      item: (hit) => {
         const title = this.aisInstantSearch.highlight(hit, 'topic_title');
         const post = this.aisInstantSearch.snippet(hit, 'raw');
-        const template = html`<h2 class="topic-title">
-            <a href="https://meta.discourse.org/${hit.topic_id}">${title}</a>
+        const template = `<h2 class="topic-title">
+            <a href="https://meta.discourse.org/t/${hit.topic_id}">${title}</a>
           </h2>
           <p>${post}</p>`;
         return template;
