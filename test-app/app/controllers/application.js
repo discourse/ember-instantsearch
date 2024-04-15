@@ -22,25 +22,30 @@ export default class ApplicationController extends Controller {
 
   get apiData() {
     return {
-      apiKey: ENV.APP.INSTANT_SEARCH_API_KEY,
-      appId: ENV.APP.INSTANT_SEARCH_APP_ID,
-      indexName: ENV.APP.INSTANT_SEARCH_INDEX_NAME,
+      apiKey: ENV.APP.TYPESENSE_API_KEY,
+      port: 8108,
+      host: 'typesense.demo-by-discourse.com',
+      protocol: 'https',
+      indexName: 'posts',
+      queryBy: 'topic_title,cooked,author_username',
     };
   }
 
   get customHitTemplate() {
     return {
-      showPreviousText(data, { html }) {
-        return html`<span>Show previous</span>`;
+      showPreviousText() {
+        return `<span>Show previous</span>`;
       },
-      showMoreText: (data, { html }) => {
-        return html`<span>Show More Results</span>`;
+      showMoreText: () => {
+        return `<span>Show More Results</span>`;
       },
-      item: (hit, { html }) => {
-        const title = this.aisInstantSearch.highlight(hit, 'title');
-        const overview = this.aisInstantSearch.snippet(hit, 'overview');
-        const template = html`<h2>${title}</h2>
-          <p>${overview}</p>`;
+      item: (hit) => {
+        const title = this.aisInstantSearch.highlight(hit, 'topic_title');
+        const post = this.aisInstantSearch.snippet(hit, 'raw');
+        const template = `<h2 class="topic-title">
+            <a href="https://meta.discourse.org/t/${hit.topic_id}">${title}</a>
+          </h2>
+          <p>${post}</p>`;
         return template;
       },
     };
@@ -56,14 +61,16 @@ export default class ApplicationController extends Controller {
 
   get sortByItems() {
     return [
-      { label: 'Default', value: 'dev_keegantest' },
-      { label: 'Popularity', value: 'dev_keegantest_popularity_desc' },
+      { label: 'Posts', value: 'posts' },
+      { label: 'Topics', value: 'topics' },
+      { label: 'Chat Messages', value: 'chat_messages' },
+      { label: 'Users', value: 'users' },
     ];
   }
 
   get configurationOptions() {
     return {
-      attributesToSnippet: ['overview:20'],
+      attributesToSnippet: ['raw:20'],
     };
   }
 }

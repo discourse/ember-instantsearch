@@ -5,6 +5,7 @@ import instantsearch from 'instantsearch.js';
 import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
 import { configure } from 'instantsearch.js/es/widgets';
+import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
 
 export default class AisInstantSearch extends Component {
   @service aisInstantSearch;
@@ -17,23 +18,44 @@ export default class AisInstantSearch extends Component {
   constructor() {
     super(...arguments);
 
-    if (!this.args.appId) {
+    if (!this.args.apiData.apiKey) {
       console.error(
-        'Required parameter `appId` missing. Please provide the Application ID from your Algolia API: https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/#application-id',
+        'The Typesense API key is missing. Please provide the API key',
       );
       return;
     }
 
-    if (!this.args.apiKey) {
+    if (!this.args.apiData.port) {
       console.error(
-        'Required parameter `apiKey` missing. Please provide the API Key from your Algolia API: https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/#api-key',
+        'Port is missing. Please provide the port number for the Typesense server',
       );
       return;
     }
 
-    if (!this.args.indexName) {
+    if (!this.args.apiData.host) {
       console.error(
-        'Required parameter, `indexName` missing. Please provide a search index for the AisInstantSearch component.',
+        'Host is missing. Please provide the host for the Typesense server',
+      );
+      return;
+    }
+
+    if (!this.args.apiData.protocol) {
+      console.error(
+        'Protocol is missing (http/https). Please provide the protocol for the Typesense server',
+      );
+      return;
+    }
+
+    if (!this.args.apiData.indexName) {
+      console.error(
+        'Index name is missing. Please provide the index name for the Typesense server',
+      );
+      return;
+    }
+
+    if (!this.args.apiData.queryBy) {
+      console.error(
+        'queryBy is missing. Please provide the queryBy field(s) for the Typesense server',
       );
       return;
     }
@@ -45,7 +67,7 @@ export default class AisInstantSearch extends Component {
     }
 
     this.instantSearchInstance = instantsearch({
-      indexName: this.args.indexName,
+      indexName: this.args.apiData.indexName,
       searchClient: this.searchClient,
       numberLocale: this.args.numberLocale,
       searchFunction: this.args.searchFunction,
@@ -75,7 +97,25 @@ export default class AisInstantSearch extends Component {
 
   createSearchClient() {
     try {
-      const searchClient = algoliasearch(this.args.appId, this.args.apiKey);
+      // const searchClient = algoliasearch(this.args.appId, this.args.apiKey);
+      const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
+        server: {
+          apiKey: this.args.apiData.apiKey,
+          nodes: [
+            {
+              host: this.args.apiData.host,
+              port: this.args.apiData.port,
+              protocol: this.args.apiData.protocol,
+            },
+          ],
+        },
+        additionalSearchParameters: {
+          query_by: this.args.apiData.queryBy,
+        },
+      });
+
+      const searchClient = typesenseInstantsearchAdapter.searchClient;
+
       if (!searchClient) {
         throw new Error('Failed to create searchClient');
       }

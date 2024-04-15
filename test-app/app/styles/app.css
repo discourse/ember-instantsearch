@@ -1287,3 +1287,13 @@
   background: none;
   border: none;
 }
+
+.topic-title a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.ais-InfiniteHits-item {
+  display: flex;
+  flex-flow: row wrap;
+}
