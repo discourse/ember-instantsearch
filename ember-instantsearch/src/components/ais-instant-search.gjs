@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
