@@ -1,14 +1,15 @@
 {
-  "name": "ember-instantsearch",
+  "name": "@discourse/ember-instantsearch",
   "version": "1.0.0",
-  "description": "The default blueprint for Embroider v2 addons.",
+  "description": "A Ember v2 addon which acts as a wrapper for Algolia's InstantSearch library integrated with a Typesense adapter",
   "keywords": [
     "ember-addon",
     "ember",
     "instantsearch",
     "algolia",
     "ui",
-    "autocomplete"
+    "autocomplete",
+    "typesense"
   ],
   "repository": "https://github.com/discourse/ember-instantsearch",
   "license": "MIT",
