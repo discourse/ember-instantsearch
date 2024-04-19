@@ -1,6 +1,6 @@
 {
   "name": "@discourse/ember-instantsearch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Ember v2 addon which acts as a wrapper for Algolia's InstantSearch library integrated with a Typesense adapter",
   "keywords": [
     "ember-addon",
@@ -41,7 +41,7 @@
     "@ember/render-modifiers": "^2.1.0",
     "@embroider/addon-shim": "^1.8.7",
     "algoliasearch": "^4.22.1",
-    "decorator-transforms": "^1.0.1",
+    "decorator-transforms": "^1.2.1",
     "ember-cli-htmlbars": "ember-cli/ember-cli-htmlbars",
     "instantsearch.js": "^4.66.0",
     "typesense-instantsearch-adapter": "^2.8.0"
