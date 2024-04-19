@@ -111,6 +111,8 @@ export default class AisInstantSearch extends Component {
         additionalSearchParameters: {
           query_by: this.args.apiData.queryBy,
         },
+        collectionSpecificSearchParameters:
+          this.args.collectionSpecificSearchParameters,
       });
 
       const searchClient = typesenseInstantsearchAdapter.searchClient;
