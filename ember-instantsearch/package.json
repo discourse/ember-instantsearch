@@ -1,6 +1,6 @@
 {
   "name": "@discourse/ember-instantsearch",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A Ember v2 addon which acts as a wrapper for Algolia's InstantSearch library integrated with a Typesense adapter",
   "keywords": [
     "ember-addon",
@@ -96,6 +96,7 @@
       "./components/ais-search-box.js": "./dist/_app_/components/ais-search-box.js",
       "./components/ais-sort-by.js": "./dist/_app_/components/ais-sort-by.js",
       "./components/ais-stats.js": "./dist/_app_/components/ais-stats.js",
+      "./components/index.js": "./dist/_app_/components/index.js",
       "./services/ais-instant-search.js": "./dist/_app_/services/ais-instant-search.js"
     }
   }
