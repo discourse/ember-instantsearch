@@ -1,7 +1,6 @@
 import { hitsPerPage } from 'instantsearch.js/es/widgets';
 import AisBaseWidget from './ais-base-widget.gjs';
 import { tracked } from '@glimmer/tracking';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
 export default class AisHitsPerPage extends AisBaseWidget {
   @tracked requiredProps = {

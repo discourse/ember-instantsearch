@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import { tracked } from '@glimmer/tracking';
-import { configure } from 'instantsearch.js/es/widgets';
 
 export default class AisBaseWidget extends Component {
   @tracked element = null;
@@ -49,6 +48,6 @@ export default class AisBaseWidget extends Component {
 
   // Basic template that can be overridden in derived classes
   <template>
-    <div {{didInsert this.createWidget}} class={{this.args.rootClass}}></div>
+    <div {{didInsert this.createWidget}} class={{@rootClass}}></div>
   </template>
 }

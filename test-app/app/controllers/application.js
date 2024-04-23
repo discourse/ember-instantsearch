@@ -8,11 +8,13 @@ export default class ApplicationController extends Controller {
   get customMiddleware() {
     return [
       () => ({
+        // eslint-disable-next-line no-unused-vars
         onStateChange({ uiState }) {},
         subscribe() {},
         unsubscribe() {},
       }),
       () => ({
+        // eslint-disable-next-line no-unused-vars
         onStateChange({ uiState }) {},
         subscribe() {},
         unsubscribe() {},
