@@ -75,29 +75,6 @@
     "version": 2,
     "type": "addon",
     "main": "addon-main.cjs",
-    "app-js": {
-      "./components/ais-base-widget.js": "./dist/_app_/components/ais-base-widget.js",
-      "./components/ais-clear-refinements.js": "./dist/_app_/components/ais-clear-refinements.js",
-      "./components/ais-current-refinements.js": "./dist/_app_/components/ais-current-refinements.js",
-      "./components/ais-hits-per-page.js": "./dist/_app_/components/ais-hits-per-page.js",
-      "./components/ais-hits.js": "./dist/_app_/components/ais-hits.js",
-      "./components/ais-infinite-hits.js": "./dist/_app_/components/ais-infinite-hits.js",
-      "./components/ais-instant-search.js": "./dist/_app_/components/ais-instant-search.js",
-      "./components/ais-menu-select.js": "./dist/_app_/components/ais-menu-select.js",
-      "./components/ais-menu.js": "./dist/_app_/components/ais-menu.js",
-      "./components/ais-numeric-menu.js": "./dist/_app_/components/ais-numeric-menu.js",
-      "./components/ais-pagination.js": "./dist/_app_/components/ais-pagination.js",
-      "./components/ais-panel.js": "./dist/_app_/components/ais-panel.js",
-      "./components/ais-powered-by.js": "./dist/_app_/components/ais-powered-by.js",
-      "./components/ais-range-slider.js": "./dist/_app_/components/ais-range-slider.js",
-      "./components/ais-rating-menu.js": "./dist/_app_/components/ais-rating-menu.js",
-      "./components/ais-refinement-list.js": "./dist/_app_/components/ais-refinement-list.js",
-      "./components/ais-relevant-sort.js": "./dist/_app_/components/ais-relevant-sort.js",
-      "./components/ais-search-box.js": "./dist/_app_/components/ais-search-box.js",
-      "./components/ais-sort-by.js": "./dist/_app_/components/ais-sort-by.js",
-      "./components/ais-stats.js": "./dist/_app_/components/ais-stats.js",
-      "./components/index.js": "./dist/_app_/components/index.js",
-      "./services/ais-instant-search.js": "./dist/_app_/services/ais-instant-search.js"
-    }
+    "app-js": {}
   }
 }
