@@ -1,6 +1,6 @@
 {
   "name": "@discourse/ember-instantsearch",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A Ember v2 addon which acts as a wrapper for Algolia's InstantSearch library integrated with a Typesense adapter",
   "keywords": [
     "ember-addon",
