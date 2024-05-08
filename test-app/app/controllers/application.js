@@ -26,6 +26,7 @@ export default class ApplicationController extends Controller {
     return {
       apiKey: ENV.APP.TYPESENSE_API_KEY,
       port: 8108,
+      path: '',
       host: 'typesense.demo-by-discourse.com',
       protocol: 'https',
       indexName: 'posts',
