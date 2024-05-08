@@ -31,13 +31,6 @@ export default class AisInstantSearch extends Component {
       return;
     }
 
-    if (!this.args.apiData.path) {
-      console.error(
-        'Path is missing. Please provide the path for the Typesense server',
-      );
-      return;
-    }
-
     if (!this.args.apiData.host) {
       console.error(
         'Host is missing. Please provide the host for the Typesense server',
