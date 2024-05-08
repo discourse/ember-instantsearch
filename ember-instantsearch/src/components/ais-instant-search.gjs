@@ -111,8 +111,10 @@ export default class AisInstantSearch extends Component {
             {
               host: this.args.apiData.host,
               port: this.args.apiData.port,
-              path: this.args.apiData.path,
               protocol: this.args.apiData.protocol,
+              ...(this.args.apiData.path
+                ? { path: this.args.apiData.path }
+                : {}),
             },
           ],
         },
